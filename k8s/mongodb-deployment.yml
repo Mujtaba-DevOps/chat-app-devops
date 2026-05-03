@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: chatapp-mongodb
-        image: mongo:latest
+        image: mongo:6.0
         ports:
         - containerPort: 27017
         env:
@@ -28,8 +28,13 @@ spec:
           value: mongoadmin
         - name: MONGO_INITDB_ROOT_PASSWORD
           value: secret   
+
+        volumeMounts:
+        - name: mongo-data
+          mountPath: /data/db  
+      
       volumes:
       - name: mongo-data    
         persistentVolumeClaim:
-          claimName: mongodb-pvc
+         claimName: mongodb-pvc
       
