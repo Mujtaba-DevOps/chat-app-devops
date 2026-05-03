@@ -20,8 +20,8 @@ spec:
     spec:
       containers:
       - name: chatapp-backend
-        image: chat-backend:latest
-        imagePullPolicy: Never
+        image: mujtabas/chatapp-backend:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 5001
         env:
